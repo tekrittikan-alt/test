@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สรุปพิชิต HSK 4: คำศัพท์ ไวยากรณ์ & เทคนิคทำข้อสอบ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c0392b;
+      --primary-light: #e74c3c;
+      --secondary: #2c3e50;
+      --accent: #f39c12;
+      --bg-gradient: linear-gradient(135deg, #1f1c2c 0%, #928dab 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --text-dark: #2d3436;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Kanit', 'Noto Sans SC', sans-serif;
+      background: #0f172a;
+      color: #333;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .presentation-container {
+      width: 90vw;
+      max-width: 1100px;
+      height: 85vh;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      flex: 1;
+      padding: 40px 50px;
+      display: none;
+      flex-direction: column;
+      animation: fadeIn 0.4s ease-in-out forwards;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Slide Content Elements */
+    .slide-header {
+      margin-bottom: 25px;
+      border-bottom: 3px solid #f1f2f6;
+      padding-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .slide-header h2 {
+      font-size: 1.8rem;
+      color: var(--secondary);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slide-header .tag {
+      font-size: 0.9rem;
+      background: var(--primary);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 400;
+    }
+
+    /* Cover Slide */
+    .cover-slide {
+      background: linear-gradient(135deg, #b71540 0%, #0c2461 100%);
+      color: white;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover-slide h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .cover-slide .sub-title {
+      font-size: 1.4rem;
+      color: #fbc531;
+      margin-bottom: 30px;
+    }
+
+    .badge-grid {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .badge-item {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: 12px 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    /* Cards and Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 20px;
+      border-left: 5px solid var(--primary);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    }
+
+    .card.accent {
+      border-left-color: var(--accent);
+    }
+
+    .card.blue {
+      border-left-color: #3498db;
+    }
+
+    .card.green {
+      border-left-color: #2ecc71;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      color: var(--secondary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .chinese-word {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-weight: 700;
+      color: #b71540;
+    }
+
+    .pinyin {
+      color: #7f8c8d;
+      font-size: 0.9em;
+      margin-right: 5px;
+    }
+
+    ul.clean-list {
+      list-style: none;
+    }
+
+    ul.clean-list li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    ul.clean-list li::before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .formula-box {
+      background: #edf2f7;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #2b6cb0;
+      margin: 8px 0;
+      border: 1px dashed #cbd5e0;
+      font-size: 0.95rem;
+    }
+
+    .example-box {
+      background: #f7fafc;
+      border-left: 3px solid #cbd5e0;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      color: #4a5568;
+      margin-top: 6px;
+    }
+
+    /* Navigation Footer */
+    .controls-bar {
+      height: 65px;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    .btn {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #1a252f;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: #a32f23;
+    }
+
+    .slide-counter {
+      font-weight: 600;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 4px;
+      background: #e2e8f0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: var(--primary);
+      width: 10%;
+      transition: width 0.3s ease;
+    }
+
+    .highlight-badge {
+      background: #fef3c7;
+      color: #b45309;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="presentation-container">
+    <div class="progress-bar-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- SLIDE 1: COVER -->
+    <div class="slide cover-slide active">
+      <h1>🚀 เจาะลึกสรุปเข้ม HSK 4</h1>
+      <div class="sub-title">คำศัพท์ยอดฮิต • ไวยากรณ์ต้องรู้ • เทคนิคพิชิต 200+ คะแนน</div>
+      <div class="badge-grid">
+        <div class="badge-item">🎧 พาร์ตการฟัง 45 ข้อ</div>
+        <div class="badge-item">📖 พาร์ตการอ่าน 40 ข้อ</div>
+        <div class="badge-item">✍️ พาร์ตการเขียน 15 ข้อ</div>
+      </div>
+      <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.8;">💡 กดปุ่มลูกศร ซ้าย-ขวา บนคีย์บอร์ด หรือคลิกปุ่ม Next เพื่อเปลี่ยนสไลด์</p>
+    </div>
+
+    <!-- SLIDE 2: STRUCTURE -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>📊 โครงสร้างข้อสอบ & เกณฑ์คะแนน</h2>
+        <span class="tag">Overview</span>
+      </div>
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card">
+          <h3>🎧 1. การฟัง (听力)</h3>
+          <p style="margin-bottom: 8px;"><strong>45 ข้อ | ~30 นาที</strong> (100 คะแนน)</p>
+          <ul class="clean-list">
+            <li>ส่วนที่ 1: ฟังประโยคตัดสินถูก-ผิด (10 ข้อ)</li>
+            <li>ส่วนที่ 2: บทสนทนาสั้น 2 ประโยค (15 ข้อ)</li>
+            <li>ส่วนที่ 3: สนทยายาว / บรรยาย (20 ข้อ)</li>
+            <li><span class="highlight-badge">⚠️ เปิดเทปแค่รอบเดียว</span></li>
+          </ul>
+        </div>
+
+        <div class="card accent">
+          <h3>📖 2. การอ่าน (阅读)</h3>
+          <p style="margin-bottom: 8px;"><strong>40 ข้อ | 40 นาที</strong> (100 คะแนน)</p>
+          <ul class="clean-list">
+            <li>ส่วนที่ 1: เติมคำในช่องว่าง (10 ข้อ)</li>
+            <li>ส่วนที่ 2: เรียงประโยค A-B-C (10 ข้อ)</li>
+            <li>ส่วนที่ 3: อ่านบทความสั้นตอบคำถาม (20 ข้อ)</li>
+            <li><span class="highlight-badge">⏱️ แข่งกับเวลา ตกข้อละ 1 นาที</span></li>
+          </ul>
+        </div>
+
+        <div class="card blue">
+          <h3>✍️ 3. การเขียน (书写)</h3>
+          <p style="margin-bottom: 8px;"><strong>15 ข้อ | 25 นาที</strong> (100 คะแนน)</p>
+          <ul class="clean-list">
+            <li>ส่วนที่ 1: เรียงคำให้เป็นประโยค (10 ข้อ)</li>
+            <li>ส่วนที่ 2: แต่งประโยคจากรูปและคำศัพท์ (5 ข้อ)</li>
+            <li><span class="highlight-badge">🎯 เน้นไวยากรณ์เป๊ะ & สะกดถูก</span></li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 25px; font-weight: 600; color: #b71540;">
+        🎯 เกณฑ์ผ่าน: คะแนนรวมตั้งแต่ 180 / 300 คะแนนขึ้นไป
+      </div>
+    </div>
+
+    <!-- SLIDE 3: VOCABULARY 1 -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>📚 คำศัพท์ยอดฮิต (หมวดการทำงาน & อารมณ์)</h2>
+        <span class="tag">Vocabulary Part 1</span>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>🏢 การทำงาน & ธุรกิจ (ออกสอบบ่อยมาก)</h3>
+          <ul class="clean-list">
+            <li><span class="chinese-word">招聘</span> <span class="pinyin">(zhāopìn)</span> รับสมัครงาน</li>
+            <li><span class="chinese-word">简历</span> <span class="pinyin">(jiǎnlì)</span> เรซูเม่ / ประวัติย่อ</li>
+            <li><span class="chinese-word">顺利</span> <span class="pinyin">(shùnlì)</span> ราบรื่น / สำเร็จด้วยดี</li>
+            <li><span class="chinese-word">严格</span> <span class="pinyin">(yángé)</span> เข้มงวด / เคร่งครัด</li>
+            <li><span class="chinese-word">责任</span> <span class="pinyin">(zérèn)</span> หน้าที่ความรับผิดชอบ</li>
+            <li><span class="chinese-word">压力</span> <span class="pinyin">(yālì)</span> ความกดดัน</li>
+          </ul>
+        </div>
+
+        <div class="card accent">
+          <h3>🎭 อารมณ์ & ความรู้สึก</h3>
+          <ul class="clean-list">
+            <li><span class="chinese-word">激动</span> <span class="pinyin">(jīdòng)</span> ตื่นเต้น / ซาบซึ้งใจ</li>
+            <li><span class="chinese-word">害羞</span> <span class="pinyin">(hàixiū)</span> ขี้อาย / เขิน</li>
+            <li><span class="chinese-word">骄傲</span> <span class="pinyin">(jiāo'ào)</span> ภาคภูมิใจ / หยิ่งทะนง</li>
+            <li><span class="chinese-word">后悔</span> <span class="pinyin">(hòuhuǐ)</span> เสียใจภายหลัง</li>
+            <li><span class="chinese-word">失望</span> <span class="pinyin">(shīwàng)</span> ผิดหวัง</li>
+            <li><span class="chinese-word">羡慕</span> <span class="pinyin">(xiànmù)</span> อิจฉา (แง่ชื่นชม)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: VOCABULARY 2 -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>📚 คำศัพท์ยอดฮิต (หมวดชีวิต & คำเชื่อม)</h2>
+        <span class="tag">Vocabulary Part 2</span>
+      </div>
+      <div class="grid-2">
+        <div class="card blue">
+          <h3>🌱 ทัศนคติ & การดำเนินชีวิต</h3>
+          <ul class="clean-list">
+            <li><span class="chinese-word">坚持</span> <span class="pinyin">(jiānchí)</span> ยืนหยัด / ไม่ย่อท้อ</li>
+            <li><span class="chinese-word">放弃</span> <span class="pinyin">(fàngqì)</span> ยอมแพ้ / สละสิทธิ์</li>
+            <li><span class="chinese-word">积累</span> <span class="pinyin">(jīlěi)</span> สั่งสม / เก็บเกี่ยว (ประสบการณ์)</li>
+            <li><span class="chinese-word">适应</span> <span class="pinyin">(shìyìng)</span> ปรับตัว / คุ้นชิน</li>
+            <li><span class="chinese-word">丰富</span> <span class="pinyin">(fēngfù)</span> อุดมสมบูรณ์ / หลากหลาย</li>
+            <li><span class="chinese-word">礼貌</span> <span class="pinyin">(lǐmào)</span> มารยาท / สุภาพ</li>
+          </ul>
+        </div>
+
+        <div class="card green">
+          <h3>🔗 คำเชื่อมบอกตรรกะและเหตุผล</h3>
+          <ul class="clean-list">
+            <li><span class="chinese-word">尽管</span> <span class="pinyin">(jǐnguǎn)</span> แม้ว่า (ตามด้วยข้อยกเว้น)</li>
+            <li><span class="chinese-word">甚至</span> <span class="pinyin">(shènzhì)</span> แม้กระทั่ง / ถึงขนาดที่</li>
+            <li><span class="chinese-word">既然</span> <span class="pinyin">(jìrán)</span> ในเมื่อ... (ก็...)</li>
+            <li><span class="chinese-word">无论</span> <span class="pinyin">(wúlùn)</span> ไม่ว่า... (ก็ตาม)</li>
+            <li><span class="chinese-word">从而</span> <span class="pinyin">(cóng'ér)</span> ด้วยเหตุนี้จึงส่งผลให้...</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: GRAMMAR 1 -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>⚡ ไวยากรณ์ต้องเป๊ะ: ประโยค 把 และ 被</h2>
+        <span class="tag">Core Grammar 1</span>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>1. โครงสร้าง 把 (Bǎ) — เน้นการกระทำต่อกรรม</h3>
+          <div class="formula-box">ประธาน + 把 + กรรม + กริยา + คำเสริม/ผลลัพธ์</div>
+          <div class="example-box">
+            👉 请<strong>把</strong>门<strong>关上</strong>。<br>
+            <span style="font-size:0.85em; color:#718096;">(กรุณาปิดประตู)</span>
+          </div>
+          <div class="example-box">
+            👉 我<strong>把</strong>作业<strong>做完了</strong>。<br>
+            <span style="font-size:0.85em; color:#718096;">(ฉันทำการบ้านเสร็จแล้ว)</span>
+          </div>
+          <p style="font-size:0.85rem; color:#c53030; margin-top:8px;">*ข้อห้าม: กริยาต้องมีผลลัพธ์ตามหลัง ห้ามใช้กริยาโดดๆ</p>
+        </div>
+
+        <div class="card accent">
+          <h3>2. โครงสร้าง 被 (Bèi) — ประโยคถูกกระทำ</h3>
+          <div class="formula-box">กรรม + 被 (+ ผู้กระทำ) + กริยา + ผลลัพธ์</div>
+          <div class="example-box">
+            👉 蛋糕<strong>被</strong>弟弟<strong>吃光了</strong>。<br>
+            <span style="font-size:0.85em; color:#718096;">(เค้กถูกน้องชายกินหมดเกลี้ยงแล้ว)</span>
+          </div>
+          <div class="example-box">
+            👉 手机<strong>被</strong>偷<strong>了</strong>。<br>
+            <span style="font-size:0.85em; color:#718096;">(โทรศัพท์ถูกขโมยไปแล้ว - ละผู้กระทำได้)</span>
+          </div>
+          <p style="font-size:0.85rem; color:#2b6cb0; margin-top:8px;">*มักใช้กับเหตุการณ์ที่ส่งผลกระทบหรือเกิดความเสียหาย</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: GRAMMAR 2 -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>⚡ ไวยากรณ์ต้องเป๊ะ: คู่คำเชื่อมยอดฮิต</h2>
+        <span class="tag">Core Grammar 2</span>
+      </div>
+      <div class="grid-2">
+        <div class="card blue">
+          <h3>คู่คำเชื่อมบอกเงื่อนไข & เสริมความ</h3>
+          <ul class="clean-list">
+            <li>
+              <strong>不仅……而且 / 并且……</strong><br>
+              <em>ไม่เพียงแต่... แต่ยัง...</em>
+            </li>
+            <li>
+              <strong>只要……就……</strong> (ขอแค่... ก็...)<br>
+              <span class="highlight-badge">VS</span> <strong>只有……才……</strong> (ต้อง... เท่านั้นถึงจะ...)
+            </li>
+            <li>
+              <strong>连……也/都……</strong><br>
+              <em>แม้กระทั่ง... ก็...</em><br>
+              <small>例: 这个问题太难了，<strong>连</strong>他<strong>都</strong>不会。</small>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card green">
+          <h3>คู่คำเชื่อมบอกการขัดแย้ง & สมมุติ</h3>
+          <ul class="clean-list">
+            <li>
+              <strong>虽然 / 尽管……但是 / 却……</strong><br>
+              <em>แม้ว่า... แต่...</em>
+            </li>
+            <li>
+              <strong>无论 / 不管……都 / 也……</strong><br>
+              <em>ไม่ว่าจะ... ก็ตาม...</em>
+            </li>
+            <li>
+              <strong>即使……也……</strong><br>
+              <em>แม้ว่า/ต่อให้... ก็...</em>
+            </li>
+            <li>
+              <strong>既然……就……</strong><br>
+              <em>ในเมื่อ/ไหนๆ ก็... ก็...</em>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: LISTENING TRICKS -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>🎧 Trick การทำข้อสอบ: พาร์ตการฟัง (听力)</h2>
+        <span class="tag">Listening Tricks</span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. อ่าน Choice ก่อนเสียงขึ้น</h3>
+          <p style="font-size:0.9rem; line-height:1.6;">ใช้จังหวะที่เทปอ่านคำแนะนำ กวาดสายตาดู Choice ทุกข้อ เพื่อคาดเดาบริบทว่าคุยเรื่องอะไร (สถานที่, อาชีพ, ความรู้สึก)</p>
+        </div>
+
+        <div class="card accent">
+          <h3>2. ระวัง Synonyms คำเหมือน</h3>
+          <p style="font-size:0.9rem; line-height:1.6;">ข้อสอบชอบเปลี่ยนคำพูดในเทปกับตัวเลือก เช่น ในเทปพูด <strong>心情不好</strong> แต่ช้อยส์เป็น <strong>伤心</strong> หรือในเทปพูด <strong>价格便宜</strong> ช้อยส์เป็น <strong>打折</strong></p>
+        </div>
+
+        <div class="card blue">
+          <h3>3. โฟกัสคำเชื่อมจุดหักมุม</h3>
+          <p style="font-size:0.9rem; line-height:1.6;">คำตอบจริงมักอยู่หลังคำว่า <strong>但是 (dànshì)</strong>, <strong>其实 (qíshí)</strong>, <strong>不过 (búguò)</strong> ห้ามหลงกลข้อมูลก่อนหน้าจุดหักมุม!</p>
+        </div>
+      </div>
+      <div class="example-box" style="margin-top:20px; border-left-color: var(--primary);">
+        💡 <strong>ข้อห้ามสำคัญ:</strong> ข้อไหนฟังไม่ทันให้เดาแล้วปล่อยผ่านทันที ห้ามมัวแต่นึกจนเสียสมาธิข้อถัดไป
+      </div>
+    </div>
+
+    <!-- SLIDE 8: READING TRICKS -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>📖 Trick การทำข้อสอบ: พาร์ตการอ่าน (阅读)</h2>
+        <span class="tag">Reading Tricks</span>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. เติมคำในช่องว่าง</h3>
+          <ul class="clean-list">
+            <li>แยก Part of Speech ของคำที่ให้มา (N, V, Adj, Adv)</li>
+            <li>ดูหน้า-หลังช่องว่างว่าขาดคำชนิดไหน</li>
+            <li>ตัดช้อยส์ได้ทันทีโดยไม่ต้องอ่านทั้งประโยค</li>
+          </ul>
+        </div>
+
+        <div class="card accent">
+          <h3>2. เรียงลำดับ A-B-C</h3>
+          <ul class="clean-list">
+            <li><strong>หาประโยคแรก:</strong> มักขึ้นต้นด้วยประธาน ไม่ขึ้นด้วยคำเชื่อมบอกผลหรือคำสรรพนาม (这, 那)</li>
+            <li><strong>จับคู่คำเชื่อม:</strong> เช่น 先...然后... หรือ 不仅...而且...</li>
+          </ul>
+        </div>
+
+        <div class="card blue">
+          <h3>3. อ่านบทความสั้น</h3>
+          <ul class="clean-list">
+            <li><strong>อ่านคำถามก่อนบทความ</strong></li>
+            <li>นำ Keyword จากโจทย์ไปกวาดสายตา (Scan) หาในบทความ</li>
+            <li>ประโยคแรกและประโยคสุดท้ายของบทความมักเป็นใจความสำคัญ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: WRITING TRICKS -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>✍️ Trick การทำข้อสอบ: พาร์ตการเขียน (书写)</h2>
+        <span class="tag">Writing Tricks</span>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>ส่วนที่ 1: เรียงประโยค (10 ข้อ)</h3>
+          <ul class="clean-list">
+            <li><strong>Step 1:</strong> หากริยาหลัก (Main Verb) ให้เจอก่อน</li>
+            <li><strong>Step 2:</strong> หาประธาน (Subject) และกรรม (Object)</li>
+            <li><strong>Step 3:</strong> จัดวางคำขยาย (Adj/Adv วางหน้าคำที่ขยาย)</li>
+            <li><strong>Step 4:</strong> ตรวจสอบโครงสร้างพิเศษ เช่น 把, 被, 比, 是...的</li>
+          </ul>
+        </div>
+
+        <div class="card green">
+          <h3>ส่วนที่ 2: แต่งประโยคจากภาพ (5 ข้อ)</h3>
+          <ul class="clean-list">
+            <li><strong>เน้นโครงสร้างง่ายแต่ถูก 100%:</strong><br>
+              <code>ประธาน + (เวลา/สถานที่) + กริยา + กรรม</code></li>
+            <li>ไม่จำเป็นต้องแต่งประโยคซับซ้อน ป้องกันการเขียนอักษรผิด</li>
+            <li><span class="highlight-badge" style="background:#fee2e2; color:#991b1b;">สำคัญมาก</span> เขียนอักษรจีนให้ถูกต้อง ชัดเจน และ<strong>ห้ามลืมเครื่องหมายจุด (。)</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: SUMMARY -->
+    <div class="slide cover-slide" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+      <h1 style="font-size:2.5rem;">🎉 พร้อมลุยสอบ HSK 4!</h1>
+      <p style="font-size:1.2rem; margin: 20px 0 30px; opacity:0.9;">"การเตรียมตัวที่ดี + เทคนิคที่แม่นยำ = ความสำเร็จในการสอบ"</p>
+      
+      <div style="background:rgba(255,255,255,0.15); padding:20px 30px; border-radius:15px; max-width:600px; backdrop-filter:blur(5px);">
+        <h3 style="color:#fbc531; margin-bottom:10px;">Checklist ก่อนเข้าห้องสอบ</h3>
+        <p style="font-size:0.95rem; line-height:1.8;">
+          ✅ ทบทวน 1,200 คำศัพท์สำคัญ<br>
+          ✅ ซ้อมทำข้อสอบจับเวลาจริง (การอ่าน 40 นาที)<br>
+          ✅ แม่นโครงสร้าง 把, 被, และคำเชื่อมคู่กัน<br>
+          ✅ พักผ่อนให้เพียงพอและพกความมั่นใจไปเต็มร้อย!
+        </p>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls-bar">
+      <button class="btn" id="prevBtn" onclick="prevSlide()">◀ Previous</button>
+      <span class="slide-counter" id="slideCounter">1 / 10</span>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">Next ▶</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const slideCounter = document.getElementById('slideCounter');
+    const progressBar = document.getElementById('progressBar');
+    let currentSlide = 0;
+
+    function updateSlide() {
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentSlide);
+      });
+
+      slideCounter.innerText = `${currentSlide + 1} / ${slides.length}`;
+      progressBar.style.width = `${((currentSlide + 1) / slides.length) * 100}%`;
+
+      prevBtn.disabled = currentSlide === 0;
+      prevBtn.style.opacity = currentSlide === 0 ? '0.4' : '1';
+      prevBtn.style.cursor = currentSlide === 0 ? 'default' : 'pointer';
+
+      if (currentSlide === slides.length - 1) {
+        nextBtn.innerText = 'Restart 🔄';
+      } else {
+        nextBtn.innerText = 'Next ▶';
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+      } else {
+        currentSlide = 0;
+      }
+      updateSlide();
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    updateSlide();
+  </script>
+</body>
+</html>
